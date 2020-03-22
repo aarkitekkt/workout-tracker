@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Tracker</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Workout Tracker 1000</h1>
+        <h2><i>get off your ass!</i></h2>
+        <form id="workoutForm">
+            <input type="text" id="workout" placeholder="Workout" />
+            <br />
+            <button type="submit" id="addWorkout" name="action">Add Workout</button>
+        </form>
+        <form id="exerciseForm">
+            <input type="text" id="exercise" placeholder="Exercise" />
+            <br />
+            <input type="text" id="reps" placeholder="Reps" />
+            <br />
+            <input type="text" id="sets" placeholder="Sets" />
+            <br />
+            <button type="submit" id="addExercise" name="action">Add Exercise</button>
+            <p><a href="/api/workouts">See workouts</a></p>
+            <p><a href="/api/exercises">See exercises</a></p>
+            <p><a href="/api/getshredded">See workouts with exercises</a></p>
+        </form>
+        <div id="results">
+            <h3>Workout Name Goes Here</h3>
+            <table id="workout">
+                <tr>
+                    <th>Exercise</th>
+                    <th>Reps</th>
+                    <th>Sets</th>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
