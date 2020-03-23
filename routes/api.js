@@ -4,9 +4,10 @@ const Workout = require("../models/workouts.js");
 
 
 router.post("/api/workouts", ({ body }, res) => {
-    Workout.create(body)
+    Workout.findOneAndReplace({}, body, { upsert: true })
         .then(workoutDB => {
             console.log(workoutDB);
+            res.status(200).json(workoutDB);
         })
         .catch(err => {
             res.status(400).json(err);
@@ -18,6 +19,17 @@ router.post("/api/exercises", ({ body }, res) => {
         .then(({ _id }) => Workout.findOneAndUpdate({}, { $push: { exercises: _id } }, { new: true }))
         .then(workoutDB => {
             console.log(workoutDB);
+            res.status(200).json(workoutDB);
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+});
+
+router.put("/api/exercises", (req, res) => {
+    Exercise.deleteMany({})
+        .then(workoutDB => {
+            res.status(200).json(workoutDB);
         })
         .catch(err => {
             res.status(400).json(err);

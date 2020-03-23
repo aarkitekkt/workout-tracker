@@ -10,7 +10,7 @@
 <body>
     <div id="wrapper">
         <h1>Workout Tracker 1000</h1>
-        <h2><i>get off your ass!</i></h2>
+
         <form id="workoutForm">
             <input type="text" id="workout" placeholder="Workout" />
             <br />
@@ -29,13 +29,15 @@
             <p><a href="/api/getshredded">See workouts with exercises</a></p>
         </form>
         <div id="results">
-            <h3>Workout Name Goes Here</h3>
-            <table id="workout">
-                <tr>
+            <h3 id="workoutName">Add a new workout!</h3>
+            <table id="workoutTable">
+                <thead>
                     <th>Exercise</th>
                     <th>Reps</th>
                     <th>Sets</th>
-                </tr>
+                </thead>
+                <tbody id="ExerciseTableBody">
+                </tbody>
             </table>
 
         </div>
