@@ -16,43 +16,44 @@
         <div class="col-md-6 no-gutters">
             <div class="leftside">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 id="title">Build Your Own Workout</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <form class="form-inline" id="workoutForm">
-                                <input class="form-control form-contol-lg border-0 text-center" type="text" id="workout"
-                                    placeholder="name your workout" />
 
-                                <button class="btn btn-secondary" type="submit" id="addWorkout" name="action">get
-                                    started</button>
-                            </form>
-                        </div>
-                    </div>
+                    <h2 id="title" class="text-center p-5">Build Your Own Workout</h2>
+
+
+                    <form id="workoutForm" class="form mx-auto mt-5">
+                        <input class="form-control form-contol-lg border-0 text-center" type="text" id="workout"
+                            placeholder="name your workout" />
+
+                        <button class="btn btn-secondary btn-block mt-3" type="submit" id="addWorkout" name="action">get
+                            started</button>
+                    </form>
+
                 </div>
             </div>
         </div>
 
         <div class="col-md-6 no-gutters">
-            <div class="rightside d-flex justify-content-center align-items-center">
-                <div id="container">
-
-                    <h5 id="exerciseHeader">add an exercise to your workout</h5>
-                    <form id="exerciseForm" class="form">
-                        <input class="form-control border-0" type="text" id="exercise" placeholder="Exercise" />
-                        <input class="form-control border-0" type="text" id="reps" placeholder="Reps" />
-                        <input class="form-control border-0" type="text" id="sets" placeholder="Sets" />
-                        <button class="btn btn-secondary" type="submit" id="addExercise" name="action">Add
-                            Exercise</button>
+            <div class="rightside">
+                <div class="container">
+                    <h5 id="exerciseHeader" class="pt-5 text-center">add an exercise to your workout</h5>
+                    <form id="exerciseForm" class="form mx-auto">
+                        <input
+                            class="form-control border-secondary border-top-0 border-left-0 border-right-0 rounded-0 bg-transparent text-light"
+                            type="text" id="exercise" placeholder="Exercise" />
+                        <input
+                            class="form-control border-secondary border-top-0 border-left-0 border-right-0 rounded-0 bg-transparent text-light"
+                            type="text" id="reps" placeholder="Reps" />
+                        <input
+                            class="form-control border-secondary border-top-0 border-left-0 border-right-0 rounded-0 bg-transparent text-light"
+                            type="text" id="sets" placeholder="Sets" />
+                        <button class="btn btn-secondary btn-block mt-3" type="submit" id="addExercise"
+                            name="action">add exercise to workout</button>
                     </form>
 
                     <div id="results">
-                        <h3 id="workoutName"></h3>
-                        <table class="table" id="workoutTable">
-                            <thead>
+                        <h3 id="workoutName" class="text-center mt-5">workouthere</h3>
+                        <table class="table table-sm table-hover table-borderless mx-auto" id="workoutTable">
+                            <thead class="table-dark">
                                 <th>Exercise</th>
                                 <th>Reps</th>
                                 <th>Sets</th>
