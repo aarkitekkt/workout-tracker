@@ -21,7 +21,10 @@ $("#workoutForm").on("submit", event => {
         $.ajax("/api/exercises", {
             type: "PUT"
         })
-        // console.log(newWorkout.workoutName + " time to get shredded!");
+            .then(() => {
+                getWorkoutName();
+                exTable.empty();
+            });
     });
 });
 
