@@ -5,43 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <div id="wrapper">
-        <h1>Workout Tracker 1000</h1>
-
-        <form id="workoutForm">
-            <input type="text" id="workout" placeholder="Workout" />
-            <br />
-            <button type="submit" id="addWorkout" name="action">Add Workout</button>
-        </form>
-        <form id="exerciseForm">
-            <input type="text" id="exercise" placeholder="Exercise" />
-            <br />
-            <input type="text" id="reps" placeholder="Reps" />
-            <br />
-            <input type="text" id="sets" placeholder="Sets" />
-            <br />
-            <button type="submit" id="addExercise" name="action">Add Exercise</button>
-            <p><a href="/api/workouts">See workouts</a></p>
-            <p><a href="/api/exercises">See exercises</a></p>
-            <p><a href="/api/getshredded">See workouts with exercises</a></p>
-        </form>
-        <div id="results">
-            <h3 id="workoutName">Add a new workout!</h3>
-            <table id="workoutTable">
-                <thead>
-                    <th>Exercise</th>
-                    <th>Reps</th>
-                    <th>Sets</th>
-                </thead>
-                <tbody id="ExerciseTableBody">
-                </tbody>
-            </table>
-
+    <div class="row no-gutters">
+        <div class="col-md-6 no-gutters">
+            <div class="leftside d-flex justify-content-center align-items-center">
+                <h2>Workout Tracker</h2>
+                <form id="workoutForm">
+                    <input type="text" id="workout" placeholder="Workout" />
+                    <br />
+                    <button type="submit" id="addWorkout" name="action">Add Workout</button>
+                </form>
+            </div>
         </div>
+        <div class="col-md-6 no-gutters">
+            <div class="rightside d-flex justify-content-center align-items-center">
+                <div id="container">
+                    <form id="exerciseForm">
+                        <input type="text" id="exercise" placeholder="Exercise" />
+                        <br />
+                        <input type="text" id="reps" placeholder="Reps" />
+                        <br />
+                        <input type="text" id="sets" placeholder="Sets" />
+                        <br />
+                        <button type="submit" id="addExercise" name="action">Add Exercise</button>
+
+                    </form>
+                    <div id="results">
+                        <h3 id="workoutName">Add a new workout!</h3>
+                        <table id="workoutTable">
+                            <thead>
+                                <th>Exercise</th>
+                                <th>Reps</th>
+                                <th>Sets</th>
+                            </thead>
+                            <tbody id="ExerciseTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
 </body>
