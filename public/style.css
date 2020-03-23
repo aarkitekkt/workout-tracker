@@ -10,9 +10,39 @@
 }
 
 .leftside {
-    background: red;
+    /* Photo by Karl Solano from Pexels */
+    background-image: url("./assets/person-wearing-grey-nike-sneakers-2729899.jpg");
+    background-position: center;
+    background-color: black;
+    background-size: cover;
 }
 
 .rightside {
-    background: blue;
+    background: #253133;
+}
+
+#title {
+    position: absolute;
+    top: 25vh;
+}
+
+#workoutForm {
+    position: absolute;
+    align-items: center;
+    top: 75vh;
+}
+#workout {
+    opacity: .6;
+}
+
+#exerciseHeader {
+    color:white;
+}
+
+#workoutName {
+    color: white;
+}
+
+#workoutTable {
+    color:white;
 }
