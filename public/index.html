@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -15,17 +17,26 @@
 
         <div class="col-md-6 no-gutters">
             <div class="leftside">
-                <div class="container">
+                <div id="leftsideContainer" class="container">
 
-                    <h2 id="title" class="text-center p-5">Build Your Own Workout</h2>
+                    <h2 id="title">Workout Tracker</h2>
 
-
-                    <form id="workoutForm" class="form mx-auto mt-5">
-                        <input class="form-control form-contol-lg border-0 text-center" type="text" id="workout"
-                            placeholder="name your workout" />
-
+                    <form id="selectWorkoutForm" class="form mx-auto mt-5">
+                        <select id="inputWorkout" class="form-control">
+                            <option selected>select your workout</option>
+                        </select>
                         <button class="btn btn-secondary btn-block mt-3" type="submit" id="addWorkout" name="action">get
                             started</button>
+                    </form>
+
+
+
+                    <form id="newWorkoutForm" class="form mx-auto mt-5">
+                        <input class="form-control form-contol-lg border-0 text-center" type="text" id="workout"
+                            placeholder="new workout" />
+                        <button class="btn btn-secondary btn-block mt-3" type="submit" id="addWorkout"
+                            name="action">create new
+                            workout</button>
                     </form>
 
                 </div>
@@ -35,6 +46,20 @@
         <div class="col-md-6 no-gutters">
             <div class="rightside">
                 <div class="container">
+
+
+                    <h3 id="workoutName" class="text-center pt-5 pb-2">your workout</h3>
+                    <table class="table table-sm table-hover table-borderless mx-auto mb-5" id="workoutTable">
+                        <thead class="table-dark">
+                            <th>Exercise</th>
+                            <th>Reps</th>
+                            <th>Sets</th>
+                        </thead>
+                        <tbody id="ExerciseTableBody">
+                        </tbody>
+                    </table>
+
+
                     <h5 id="exerciseHeader" class="pt-5 text-center">add an exercise to your workout</h5>
                     <form id="exerciseForm" class="form mx-auto">
                         <input
@@ -50,18 +75,6 @@
                             name="action">add exercise to workout</button>
                     </form>
 
-                    <div id="results">
-                        <h3 id="workoutName" class="text-center mt-5">workouthere</h3>
-                        <table class="table table-sm table-hover table-borderless mx-auto" id="workoutTable">
-                            <thead class="table-dark">
-                                <th>Exercise</th>
-                                <th>Reps</th>
-                                <th>Sets</th>
-                            </thead>
-                            <tbody id="ExerciseTableBody">
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>

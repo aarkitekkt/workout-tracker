@@ -1,6 +1,11 @@
-.leftside, .rightside {
-    height: 50vh;
+.leftside {
+    height: 500px;
     width: 100%;
+}
+
+.rightside {    
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (min-width:768px) {
@@ -21,7 +26,23 @@
     background: #253133;
 }
 
-#exerciseForm, #workoutForm {
+#leftsideContainer {
+    width: 70%;
+}
+
+#title {
+    text-align: center;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 200%;
+
+}
+
+#workoutForm {
+    width:80%;
+}
+
+
+#exerciseForm {
 width: 50%;
 }
 

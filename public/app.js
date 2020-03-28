@@ -1,12 +1,16 @@
 let exercises = [];
+let workouts = [];
 let workoutTitle = [];
 const exTable = $("#ExerciseTableBody");
+const workoutSelector = $("#inputWorkout");
 const workoutHeader = $("#workoutName");
 
+getWorkoutsList();
 getTableData();
-getWorkoutName();
+// getWorkoutName();
 
-$("#workoutForm").on("submit", event => {
+$("#newWorkoutForm").on("submit", event => {
+
     event.preventDefault();
 
     var newWorkout = {
@@ -18,22 +22,36 @@ $("#workoutForm").on("submit", event => {
         type: "POST",
         data: newWorkout
     }).then(() => {
-        $.ajax("/api/exercises", {
-            type: "PUT"
-        })
-            .then(() => {
-                getWorkoutName();
-                exTable.empty();
-            });
-    });
+        populateWorkoutName(newWorkout.workoutName);
+        // $.ajax("/api/exercises", {
+        //     type: "PUT"
+    })
+    // .then(() => {
+    //     populateWorkoutName(newWorkout);
+    // });
 });
 
+$("#selectWorkoutForm").on("submit", event => {
+
+    event.preventDefault();
+
+    var newWorkout = {
+        workoutName: $("#inputWorkout").val()
+    }
+
+    populateWorkoutName(newWorkout.workoutName);
+});
+
+
 $("#exerciseForm").on("submit", event => {
+
+    event.preventDefault();
 
     var newExercise = {
         exercise: $("#exercise").val().trim(),
         reps: $("#reps").val().trim(),
-        sets: $("#sets").val().trim()
+        sets: $("#sets").val().trim(),
+        workoutName: $("#workoutName").html()
     }
 
     console.log(newExercise);
@@ -57,15 +75,28 @@ function getTableData() {
         });
 }
 
-function getWorkoutName() {
+function getWorkoutsList() {
     fetch("/api/workouts")
         .then(response => response.json())
         .then(data => {
-            workoutTitle = data;
-            console.log(workoutTitle);
-            workoutHeader.html(workoutTitle[0].workoutName);
-        });
+            workouts = data;
+            console.log(workouts);
+            populateWorkoutsSelector(workouts);
+        })
 }
+
+function populateWorkoutName(name) {
+    workoutHeader.html(name);
+    console.log("Your workout is: " + name);
+};
+
+function populateWorkoutsSelector(wo) {
+    for (let i = 0; i < wo.length; i++) {
+        workoutSelector.append(
+            `<option>${wo[i].workoutName}</option>`
+        )
+    };
+};
 
 function populateExerciseTable(ex) {
     exTable.empty();

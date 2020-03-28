@@ -4,7 +4,7 @@ const Workout = require("../models/workouts.js");
 
 
 router.post("/api/workouts", ({ body }, res) => {
-    Workout.findOneAndReplace({}, body, { upsert: true })
+    Workout.create(body)
         .then(workoutDB => {
             console.log(workoutDB);
             res.status(200).json(workoutDB);
@@ -15,8 +15,11 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 router.post("/api/exercises", ({ body }, res) => {
-    Exercise.create(body)
-        .then(({ _id }) => Workout.findOneAndUpdate({}, { $push: { exercises: _id } }, { new: true }))
+
+    console.log("Adding " + body.exercise + " to " + body.workoutName);
+
+    Exercise.create({ exercise: body.exercise, reps: body.reps, sets: body.sets })
+        .then(({ _id }) => Workout.findOneAndUpdate({ workoutName: body.workoutName }, { $push: { exercises: _id } }, { new: true }))
         .then(workoutDB => {
             console.log(workoutDB);
             res.status(200).json(workoutDB);
@@ -26,18 +29,28 @@ router.post("/api/exercises", ({ body }, res) => {
         });
 });
 
-router.put("/api/exercises", (req, res) => {
-    Exercise.deleteMany({})
+// router.put("/api/exercises", (req, res) => {
+//     Exercise.deleteMany({})
+//         .then(workoutDB => {
+//             res.status(200).json(workoutDB);
+//         })
+//         .catch(err => {
+//             res.status(400).json(err);
+//         });
+// });
+
+router.get("/api/workouts", (req, res) => {
+    Workout.find({})
         .then(workoutDB => {
-            res.status(200).json(workoutDB);
+            res.json(workoutDB);
         })
         .catch(err => {
             res.status(400).json(err);
         });
 });
 
-router.get("/api/workouts", (req, res) => {
-    Workout.find({})
+router.get("/api/workouts/:workoutName", (req, res) => {
+    Workout.find({ workoutName: req.params.workoutName })
         .then(workoutDB => {
             res.json(workoutDB);
         })
