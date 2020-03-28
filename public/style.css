@@ -46,8 +46,8 @@
 width: 50%;
 }
 
-#workout {
-    opacity: .6;
+#inputWorkout, #workout {
+    opacity: .8;
 }
 
 #exerciseHeader {

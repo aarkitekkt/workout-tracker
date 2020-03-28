@@ -6,8 +6,6 @@ const workoutSelector = $("#inputWorkout");
 const workoutHeader = $("#workoutName");
 
 getWorkoutsList();
-getTableData();
-// getWorkoutName();
 
 $("#newWorkoutForm").on("submit", event => {
 
@@ -23,12 +21,9 @@ $("#newWorkoutForm").on("submit", event => {
         data: newWorkout
     }).then(() => {
         populateWorkoutName(newWorkout.workoutName);
-        // $.ajax("/api/exercises", {
-        //     type: "PUT"
+        getTableData();
+        $("#newWorkoutForm")[0].reset();
     })
-    // .then(() => {
-    //     populateWorkoutName(newWorkout);
-    // });
 });
 
 $("#selectWorkoutForm").on("submit", event => {
@@ -40,6 +35,8 @@ $("#selectWorkoutForm").on("submit", event => {
     }
 
     populateWorkoutName(newWorkout.workoutName);
+    getTableData();
+    $("#selectWorkoutForm")[0].reset();
 });
 
 
@@ -54,22 +51,24 @@ $("#exerciseForm").on("submit", event => {
         workoutName: $("#workoutName").html()
     }
 
-    console.log(newExercise);
-
     $.ajax("/api/exercises", {
         type: "POST",
         data: newExercise
     }).then(function () {
         console.log("New Exercise Added!");
         getTableData();
+        $("#exerciseForm")[0].reset();
     });
 });
 
 function getTableData() {
-    fetch("/api/exercises")
+
+    var currentWorkout = $("#workoutName").html();
+
+    fetch("/api/getshredded/" + currentWorkout)
         .then(response => response.json())
         .then(data => {
-            exercises = data;
+            exercises = data[0].exercises;
             console.log(exercises);
             populateExerciseTable(exercises);
         });
